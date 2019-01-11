@@ -14,6 +14,13 @@ python3 run.py example/omega.jpg output.wav
 ---------------
 
 Now visualize the audio's spectogram with audacity for example to see the result.
+Make sure you have the requirements installed.
+requirements:
+	python3
+	numpy
+	scipy
+	Pillow
+
 
 ## Results
 
