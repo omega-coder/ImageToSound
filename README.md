@@ -17,6 +17,6 @@ Now visualize the audio's spectogram with audacity for example to see the result
 
 ## Results
 
-
+![spectogram result](https://raw.githubusercontent.com/omega-coder/ImagetoSound/master/doc/omega_specto.png)
 
 
