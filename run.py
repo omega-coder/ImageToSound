@@ -24,7 +24,7 @@ def im_load(file, size, contrast=True):
     im_array = np.flip(im_array, axis=0)
 
     if contrast:
-        im_array = 1/(im_array+10**15.2) # Now only god knows how this works but it does
+        im_array = 1/(im_array+10**15.2)
     else:
         im_array = 1 - im_array
 
@@ -55,16 +55,15 @@ def im_load(file, size, contrast=True):
     return im_array
 
 def make_sound(file, out="out.wav", duration=6.9, sample_rate=44100.0, min_freq=0, max_freq=22000, intensity_fact=1, contrast=True):
-    wave_f__ = wave.open(out, "w")
-    # set number of channels to 1 : Mono channel
+    wave_f__ = wave.open(out, "w") 
     wave_f__.setnchannels(1)
     wave_f__.setsampwidth(2)
     wave_f__.setframerate(sample_rate)
 
     max_frames = int(duration * sample_rate)
-    max_intens = 32767 # WAV's max intensity
+    max_intens = 32767
 
-    step_size = 400 # 400 Hz.
+    step_size = 400
     spec_step = int( (max_freq - min_freq) / step_size )
 
     im_array = im_load(file=file, size=(spec_step, max_frames), contrast=contrast)
@@ -73,7 +72,7 @@ def make_sound(file, out="out.wav", duration=6.9, sample_rate=44100.0, min_freq=
     im_array *= max_intens
 
     for frame in range(max_frames):
-        if frame % 69 == 0:
+        if frame % 100 == 0:
             print("Total Progress = {:.2%}".format((frame/max_frames)), end="\r") 
         sig_val, count = 0, 0
         for step in range(spec_step):
